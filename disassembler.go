@@ -2,14 +2,13 @@ package libdisevm
 
 import (
 	"errors"
-	"strconv"
 	"strings"
 )
 
 type Opcode struct {
 	Original []string
 	Mnemonic string
-	Args     []int8
+	Args     []string
 }
 
 func Disassemble(bytecode string) ([]Opcode, error) {
@@ -52,8 +51,7 @@ func getOperations(bytecode string) []Opcode {
 			for takeValues != o.TakeValues {
 				i++
 
-				arg, _ := strconv.ParseInt(bytecodeSlice[i], 10, 8)
-				opcode.Args = append(opcode.Args, int8(arg))
+				opcode.Args = append(opcode.Args, bytecodeSlice[i])
 				opcode.Original = append(opcode.Original, bytecodeSlice[i])
 				takeValues++
 			}

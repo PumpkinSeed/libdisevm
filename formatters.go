@@ -23,14 +23,14 @@ func (f *Formatter) SingleLine() string {
 		}
 		result += opcode.Mnemonic
 		for _, arg := range opcode.Args {
-			result += " " + fmt.Sprintf("0x%02d", int(arg))
+			result += " " + fmt.Sprintf("0x%s", arg)
 		}
 		result += " "
 	}
 	return strings.TrimSpace(result)
 }
 
-func (f *Formatter) Multiline() string {
+func (f *Formatter) MultiLine() string {
 	var result string
 	for _, opcode := range f.Opcodes {
 		if opcode.Mnemonic == "" {
@@ -38,7 +38,7 @@ func (f *Formatter) Multiline() string {
 		}
 		result += opcode.Mnemonic
 		for _, arg := range opcode.Args {
-			result += " " + fmt.Sprintf("0x%02d", int(arg))
+			result += " " + fmt.Sprintf("0x%s", arg)
 		}
 		result += "\n"
 	}

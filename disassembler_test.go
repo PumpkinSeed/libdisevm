@@ -28,6 +28,6 @@ func TestDisassembleMultiLine(t *testing.T) {
 	}
 
 	formatter := NewFormatter(result)
-	formatted := formatter.Multiline()
+	formatted := formatter.MultiLine()
 	fmt.Println(formatted)
 }
